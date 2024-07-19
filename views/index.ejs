@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+    <link rel="stylesheet" href="/style.css"/>
+
+</head>
+<body>
+    <h1><b> Quora Posts  </b></h1>
+    <% for(post of posts) { %>
+ <div class="posting">
+    <h3 class="username"> Username : @ <%= post.username %> </h3>
+    <h4 class="content">  Content :  <%= post.content %> </h4>
+    <br>
+  <a href="http://localhost:8081/posts/<%= post.id %>" id="detailing">See in Detail</a> &nbsp; &nbsp; &nbsp; &nbsp;
+  <a href="http://localhost:8081/posts/<%= post.id %>/edit" id="detailing">Edit Post </a> &nbsp; &nbsp; &nbsp; &nbsp;  
+  <!-- Creating a Functionaliyty buttonto delete the post -->
+ <form method="post" action="/posts/<%= post.id %>?_method=DELETE">
+    <button> Delete Post </button>
+ </form>
+ </div>
+    <% }  %>
+<br><br>
+
+    <div class="create_a_new_post">
+        <a href="http://localhost:8081/posts/new">Create a New Post </a>
+    </div>
+
+</body>
+</html>
